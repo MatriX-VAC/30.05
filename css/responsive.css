@@ -1,0 +1,119 @@
+@media (max-width: 1200px) {
+
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .video-content h2 {
+        font-size: 4.5rem;
+    }
+
+    .ending h2 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 992px) {
+
+    section {
+        padding: 100px 6%;
+    }
+
+    .intro-title {
+        font-size: 5rem;
+    }
+
+    .hero-title {
+        font-size: 3.8rem;
+    }
+
+    .video-content h2 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .intro-title {
+        font-size: 4rem;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .video-content h2 {
+        font-size: 3rem;
+    }
+
+    .ending h2 {
+        font-size: 3rem;
+    }
+
+    .hero-text,
+    .intro-subtitle,
+    .video-content p,
+    .secret-message p {
+        font-size: 1.1rem;
+    }
+
+    .secret-message {
+        padding: 35px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    section {
+        padding: 80px 5%;
+    }
+
+    .intro-title {
+        font-size: 3rem;
+    }
+
+    .hero-title {
+        font-size: 2.3rem;
+        line-height: 1.2;
+    }
+
+    .video-content h2 {
+        font-size: 2.4rem;
+    }
+
+    .ending h2 {
+        font-size: 2.4rem;
+    }
+
+    .intro-btn,
+    .hero-btn,
+    .secret-btn {
+        width: 100%;
+    }
+
+    .card {
+        padding: 32px 24px;
+    }
+
+    .secret-message {
+        padding: 28px;
+    }
+}
+@media (max-width: 1000px) {
+
+    .gallery-header h2 {
+
+        font-size: 3rem;
+    }
+
+    .small-videos-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .main-gallery-video {
+
+        border-radius: 25px;
+    }
+
+}

@@ -1,0 +1,260 @@
+/* FADE IN */
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.fade-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FLOAT */
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.float {
+    animation: floating 6s ease-in-out infinite;
+}
+
+/* GLOW */
+
+@keyframes glowPulse {
+
+    0% {
+        box-shadow:
+        0 0 20px rgba(236,72,153,0.15),
+        0 0 50px rgba(139,92,246,0.08);
+    }
+
+    50% {
+        box-shadow:
+        0 0 40px rgba(236,72,153,0.25),
+        0 0 80px rgba(139,92,246,0.15);
+    }
+
+    100% {
+        box-shadow:
+        0 0 20px rgba(236,72,153,0.15),
+        0 0 50px rgba(139,92,246,0.08);
+    }
+}
+
+.glow {
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+/* TEXT REVEAL */
+
+.reveal-text {
+    overflow: hidden;
+}
+
+.reveal-text span {
+    display: inline-block;
+    transform: translateY(120%);
+    opacity: 0;
+}
+
+/* GRADIENT MOVEMENT */
+
+@keyframes gradientMove {
+
+    0% {
+        transform: translate(0,0);
+    }
+
+    25% {
+        transform: translate(40px,-30px);
+    }
+
+    50% {
+        transform: translate(-20px,20px);
+    }
+
+    75% {
+        transform: translate(30px,10px);
+    }
+
+    100% {
+        transform: translate(0,0);
+    }
+}
+
+.circle-1 {
+    animation: gradientMove 12s ease-in-out infinite;
+}
+
+.circle-2 {
+    animation: gradientMove 15s ease-in-out infinite reverse;
+}
+
+/* BUTTON SHIMMER */
+
+@keyframes shimmer {
+
+    0% {
+        background-position: -200%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+.hero-btn,
+.intro-btn,
+.secret-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-btn::before,
+.intro-btn::before,
+.secret-btn::before {
+
+    content: '';
+
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
+
+    background-size: 200%;
+
+    animation: shimmer 4s linear infinite;
+}
+
+/* STAR BLINK */
+
+@keyframes starBlink {
+
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.2;
+    }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+    background: white;
+
+    animation: starBlink 3s infinite;
+}
+
+/* VIDEO ZOOM */
+
+@keyframes slowZoom {
+
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.08);
+    }
+}
+
+.bg-video {
+    animation: slowZoom 18s linear infinite alternate;
+}
+
+/* SECRET MESSAGE APPEAR */
+
+@keyframes softAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.secret-message.active {
+    animation: softAppear 1s ease;
+}
+
+/* HERO TITLE GLOW */
+
+@keyframes textGlow {
+
+    0% {
+        text-shadow:
+        0 0 10px rgba(255,255,255,0.1),
+        0 0 30px rgba(217,70,239,0.1);
+    }
+
+    50% {
+        text-shadow:
+        0 0 20px rgba(255,255,255,0.18),
+        0 0 60px rgba(217,70,239,0.18);
+    }
+
+    100% {
+        text-shadow:
+        0 0 10px rgba(255,255,255,0.1),
+        0 0 30px rgba(217,70,239,0.1);
+    }
+}
+
+.hero-title {
+    animation: textGlow 5s ease-in-out infinite;
+}
+
+/* INTRO TITLE FLOAT */
+
+@keyframes introFloat {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.intro-title {
+    animation: introFloat 5s ease-in-out infinite;
+}

@@ -1,0 +1,587 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>для тебя</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+</head>
+
+<body>
+<!-- INTRO -->
+
+<div class="intro-screen" id="introScreen">
+
+    <div class="intro-content">
+
+        <p class="intro-small">
+            для тебя
+        </p>
+
+        <h1 class="intro-title">
+
+            иногда
+            <br>
+            людям просто нужна
+            <br>
+            поддержка
+
+        </h1>
+
+        <button id="enterSite">
+
+            открыть
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- CURSOR -->
+
+<div class="custom-cursor"></div>
+<div class="cinematic-focus" id="cinematicFocus"></div>
+    <div id="particles"></div>
+    <div class="ambient-light light-1"></div>
+<div class="ambient-light light-2"></div>
+<div class="ambient-light light-3"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="assets/music/ambient.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="gradient-circle circle-1"></div>
+        <div class="gradient-circle circle-2"></div>
+
+        <div class="hero-content">
+
+            <p class="hero-small">
+                это для тебя
+            </p>
+
+            <h1 class="hero-title">
+                сейчас тяжело.
+                <br>
+                но это не навсегда.
+            </h1>
+
+            <p class="hero-text">
+                просто переживи этот период шаг за шагом
+            </p>
+
+            <div class="hero-buttons">
+
+                <button id="scrollBtn" class="hero-btn">
+                    продолжить
+                </button>
+
+                <button id="musicToggle" class="hero-btn secondary-btn">
+                    музыка
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-- MUSIC PLAYER -->
+
+<div class="music-player" id="musicPlayer">
+
+    <!-- TOP -->
+
+    <div class="music-player-top">
+
+        <div>
+
+            <p class="music-player-label">
+                playlist
+            </p>
+
+            <h3 class="music-player-title">
+                для тебя
+            </h3>
+
+        </div>
+
+        <button id="closePlayer" class="close-player">
+
+            ×
+
+        </button>
+
+    </div>
+
+    <!-- CURRENT -->
+
+    <div class="current-track">
+
+        <div class="track-cover"></div>
+
+        <div class="current-track-info">
+
+            <h4 id="currentTrackName">
+
+                Бимбо-HOFMANNITA, ЛСП
+
+            </h4>
+
+            <p>
+
+                music for healing
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- TRACKS -->
+
+    <div class="track-list">
+
+        <div
+            class="track active-track"
+            data-src="assets/music/song1.mp3"
+            data-title="Бимбо-HOFMANNITA, ЛСП">
+
+            <p>
+                Бимбо-HOFMANNITA, ЛСП
+            </p>
+
+        </div>
+
+        <div
+            class="track"
+            data-src="assets/music/song2.mp3"
+            data-title="Icegergert - Sky priority">
+
+            <p>
+                Icegergert - Sky priority
+            </p>
+
+        </div>
+
+        <div
+            class="track"
+            data-src="assets/music/song3.mp3"
+            data-title="Зомб - Чернилами">
+
+            <p>
+                Зомб - Чернилами
+            </p>
+
+        </div>
+
+        <div
+            class="track"
+            data-src="assets/music/song4.mp3"
+            data-title="Highway">
+
+            <p>
+                Highway
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- CONTROLS -->
+
+    <div class="player-controls">
+
+        <div class="controls-row">
+
+            <button id="prevBtn" class="control-btn">
+
+                ‹‹
+
+            </button>
+
+            <button id="playPauseBtn" class="play-btn">
+
+                play
+
+            </button>
+
+            <button id="nextBtn" class="control-btn">
+
+                ››
+
+            </button>
+
+        </div>
+
+        <!-- PROGRESS -->
+
+        <div class="progress-wrapper">
+
+            <span id="currentTime">
+                0:00
+            </span>
+
+            <input
+                type="range"
+                id="progressBar"
+                value="0">
+
+            <span id="duration">
+                0:00
+            </span>
+
+        </div>
+
+        <!-- VOLUME -->
+
+        <div class="volume-wrapper">
+
+            <p>
+                volume
+            </p>
+
+            <input
+                type="range"
+                id="volumeBar"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.7">
+
+        </div>
+
+    </div>
+
+    <audio id="audioPlayer"></audio>
+
+</div>
+<section class="lastbell-section" id="nextSection">
+
+    <video autoplay muted loop playsinline class="lastbell-video">
+
+        <source src="assets/video/5.MOV" type="video/mp4">
+
+    </video>
+
+    <div class="lastbell-overlay"></div>
+
+    <div class="lastbell-content">
+
+        <p class="lastbell-small">
+            и ещё кое-что
+        </p>
+
+        <h2 class="lastbell-title">
+            с последним звонком
+        </h2>
+
+        <p class="lastbell-text">
+
+            знаю, что хотел поздравить тебя вживую.
+            <br>
+            но пусть хотя бы так.
+
+        </p>
+
+    </div>
+
+</section>
+    <!-- VIDEO -->
+
+    <section class="video-section">
+
+        <video autoplay muted loop playsinline class="bg-video">
+
+            <source src="assets/video/bg-video.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="video-overlay"></div>
+
+        <div class="video-content">
+
+            <h2>
+                всё проходит
+            </h2>
+
+            <p>
+                даже самые тяжёлые периоды
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- MEMORY -->
+
+    <section class="memory-section">
+
+    <div class="memory-header">
+
+        <p>
+            моменты
+        </p>
+
+        <h2>
+            которые останутся
+        </h2>
+
+    </div>
+
+    <div class="memory-grid">
+
+        <!-- BIG -->
+
+        <div class="memory-item large">
+            <img src="assets/img/photo1.jpg" alt="">
+        </div>
+
+        <!-- SMALL -->
+
+        <div class="memory-item">
+            <img src="assets/img/photo2.jpg" alt="">
+        </div>
+
+        <div class="memory-item">
+            <img src="assets/img/photo3.jpg" alt="">
+        </div>
+
+        <!-- WIDE -->
+
+        <div class="memory-item wide">
+            <img src="assets/img/photo4.jpg" alt="">
+        </div>
+
+        <!-- NEW -->
+
+        <div class="memory-item">
+            <img src="assets/img/photo5.jpg" alt="">
+        </div>
+
+        <div class="memory-item">
+            <img src="assets/img/photo6.jpg" alt="">
+        </div>
+
+        <div class="memory-item tall">
+            <img src="assets/img/photo7.jpg" alt="">
+        </div>
+
+        <div class="memory-item">
+            <img src="assets/img/photo8.jpg" alt="">
+        </div>
+
+        <div class="memory-item wide">
+            <img src="assets/img/photo9.jpg" alt="">
+        </div>
+
+    </div>
+
+</section>
+<section class="gallery-section">
+
+    <div class="gallery-header">
+
+        <p>
+            просто сохраним это
+        </p>
+
+        <h2>
+            некоторые моменты
+            стоят вечности
+        </h2>
+
+    </div>
+
+    <!-- MAIN VIDEO -->
+
+    <div class="main-video-wrapper">
+
+        <video
+            class="main-gallery-video"
+            controls
+            preload="auto"
+            playsinline>
+
+            <source
+                src="assets/video/2.MOV"
+                type="video/mp4">
+
+        </video>
+
+    </div>
+
+    <!-- SMALL VIDEOS -->
+
+    <div class="small-videos-grid">
+
+        <div class="small-video-card">
+
+            <video
+                controls
+                preload="auto"
+                playsinline>
+
+                <source
+                    src="assets/video/1.MOV"
+                    type="video/mp4">
+
+            </video>
+
+        </div>
+
+        <div class="small-video-card">
+
+            <video
+                controls
+                preload="auto"
+                playsinline>
+
+                <source
+                    src="assets/video/3.MOV"
+                    type="video/mp4">
+
+            </video>
+
+        </div>
+
+        <div class="small-video-card">
+
+            <video
+                controls
+                preload="auto"
+                playsinline>
+
+                <source
+                    src="assets/video/4.MOV"
+                    type="video/mp4">
+
+            </video>
+
+        </div>
+
+    </div>
+
+</section>
+    <!-- CINEMATIC -->
+
+    <section class="cinematic-section">
+
+        <div class="cinematic-video-wrapper">
+
+            <video autoplay muted loop playsinline class="cinematic-video">
+
+                <source src="assets/video/night-drive.mp4" type="video/mp4">
+
+            </video>
+
+            <div class="cinematic-overlay"></div>
+
+        </div>
+
+        <div class="cinematic-content">
+
+            <p class="cinematic-small">
+                просто напоминание
+            </p>
+
+            <h2 class="cinematic-title">
+                тебе не нужно
+                держать всё на себе
+            </h2>
+
+            <p class="cinematic-text">
+                иногда достаточно просто пережить сегодняшний день
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- SECRET -->
+
+    <section class="secret-section">
+
+        <button id="secretBtn" class="secret-btn">
+
+            открыть сообщение
+
+        </button>
+
+        <div class="secret-message" id="secretMessage">
+
+            <p>
+                я просто хочу чтобы ты помнила:
+                ты не одна
+            </p>
+
+            <p>
+                даже если сейчас внутри полный хаос —
+                это пройдёт
+            </p>
+
+            <p>
+                и я правда верю,
+                что у тебя всё получится
+            </p>
+<button class="close-secret" id="closeSecret">
+
+    закрыть
+
+</button>
+        </div>
+
+    </section>
+
+    <!-- ENDING -->
+
+    <section class="ending">
+
+        <video autoplay muted loop playsinline class="ending-video">
+
+            <source src="assets/video/stars.mp4" type="video/mp4">
+
+        </video>
+
+        <div class="ending-overlay"></div>
+
+        <div class="ending-content">
+
+            <h2>
+                скоро станет легче
+            </h2>
+
+            <p>
+                one day at a time
+            </p>
+
+        </div>
+
+    </section>
+
+    <script src="js/main.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/music.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script>
+</body>
+
+</html>
+
